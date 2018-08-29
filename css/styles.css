@@ -164,16 +164,145 @@ nav div.active a {
   background-color: #553285;
 }
 
+main.player {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 50px auto 50px;
+      grid-template-columns: 50px auto 50px;
+  grid-auto-rows: auto;
+      grid-template-areas: "photo photo photo" "time time time" "startTime empty endTime" "title title title" "prev play next" "dn vol up";
+  margin-top: 1.5rem;
+}
+
+main.player div.photo {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: photo;
+}
+
+main.player div.photo img {
+  width: 84%;
+  margin: 0 0 .5rem 8%;
+  border-radius: 20px;
+}
+
+main.player div.time {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: time;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  width: 84%;
+}
+
+main.player div.time input {
+  width: 100%;
+}
+
+main.player div.startTime {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: startTime;
+  text-align: right;
+}
+
+main.player div.endTime {
+  -ms-grid-row: 3;
+  -ms-grid-column: 3;
+  grid-area: endTime;
+}
+
+main.player div.title {
+  -ms-grid-row: 4;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: title;
+}
+
+main.player div.title span {
+  display: block;
+  text-align: center;
+}
+
+main.player div.title span span:nth-child(1) {
+  font-size: 1.5rem;
+  padding: 1rem 0 .3rem 0;
+}
+
+main.player div.title span span:nth-child(2) {
+  font-size: 1.2rem;
+  padding-bottom: 1rem;
+}
+
+main.player div.previous {
+  -ms-grid-row: 5;
+  -ms-grid-column: 1;
+  grid-area: prev;
+  -ms-grid-column-align: end;
+      justify-self: end;
+  font-size: 1.5rem;
+}
+
+main.player div.play {
+  -ms-grid-row: 5;
+  -ms-grid-column: 2;
+  grid-area: play;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  font-size: 1.5rem;
+}
+
+main.player div.next {
+  -ms-grid-row: 5;
+  -ms-grid-column: 3;
+  grid-area: next;
+  -ms-grid-column-align: start;
+      justify-self: start;
+  font-size: 1.5rem;
+}
+
+main.player div.voldn {
+  -ms-grid-row: 6;
+  -ms-grid-column: 1;
+  grid-area: dn;
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+main.player div.volume {
+  -ms-grid-row: 6;
+  -ms-grid-column: 2;
+  grid-area: vol;
+}
+
+main.player div.volume input {
+  width: 100%;
+}
+
+main.player div.volup {
+  -ms-grid-row: 6;
+  -ms-grid-column: 3;
+  grid-area: up;
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+main {
+  padding-bottom: 2.75rem;
+}
+
 main.album {
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
-  grid-auto-columns: auto;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  grid-auto-rows: auto;
 }
 
 main.album figure {
-  padding: .7rem, 2vw;
+  padding: .5rem 3vw;
 }
 
 main.album figure img {
@@ -185,10 +314,50 @@ main.album figure figcaption {
   padding: .2rem 0;
 }
 
+main.artist {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  grid-auto-rows: auto;
+}
+
+main.artist section {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 80px auto;
+      grid-template-columns: 80px auto;
+  margin: .75rem 5%;
+}
+
+main.artist section div img {
+  width: 100%;
+  clip-path: circle(40px at center);
+  -webkit-clip-path: circle(40 px at center);
+}
+
+main.artist section div:nth-child(2) {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  padding-left: 5%;
+}
+
 @media only screen and (min-width: 29rem) {
   main.album {
     -ms-grid-columns: 1fr 1fr 1fr 1fr;
         grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  main.artist {
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+  }
+  main.player {
+    -ms-grid-columns: 50% 50px auto 50px;
+        grid-template-columns: 50% 50px auto 50px;
+    -ms-grid-rows: auto;
+        grid-template-rows: auto;
+        grid-template-areas: "photo startTime time endTime" "photo title title title" "photo prev play next" "photo dn vol up";
   }
 }
 /*# sourceMappingURL=styles.css.map */
